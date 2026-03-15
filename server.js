@@ -16,7 +16,7 @@ connectDB();
 
 // Middleware
 app.use(cors({
-  origin: '*',// || process.env.CLIENT_URL,
+  origin: process.env.CLIENT_URL,
   credentials: true,
 }));
 app.use(express.json({ limit: '20mb' }));
@@ -44,5 +44,4 @@ app.use((err, req, res, next) => {
 const PORT = process.env.PORT || 5000;
 app.listen(PORT,'0.0.0.0',() => {
   console.log(`Origin set to: ${process.env.CLIENT_URL}`);
-  console.log(`Server running on http://localhost:${PORT}`);
 });
